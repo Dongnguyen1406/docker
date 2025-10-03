@@ -42,10 +42,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   backend:
-    build:
-      context: ./parking-management-backend
-      dockerfile: Dockerfile
-    restart: on-failure
+    image: dongnguyen1406/c0325g1-parking-management-backend:1.0
     ports:
       - "8080:8080"
     environment:
@@ -61,10 +58,7 @@ services:
           condition: service_started
 
   frontend:
-    build:
-      context: ./parking-management-frontend
-      dockerfile: Dockerfile
-    restart: unless-stopped
+    image: dongnguyen1406/c0325g1-parking-management-frontend:1.0
     ports:
       - "80:80"
     depends_on:
